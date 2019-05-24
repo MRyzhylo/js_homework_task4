@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+#main_block {
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    position: fixed;
+    background: #e59c0e;
+    box-sizing: border-box;
+    transition: 2s !important;
+}
+
+#main_block button {
+    margin: 2px;
+    padding: 5px;
+    transform: translateY()
+}
