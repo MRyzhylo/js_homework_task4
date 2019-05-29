@@ -14,29 +14,55 @@ function blockPosition(nameId) {
     this.btnRight = document.createElement('button');
     this.btnRight.innerHTML = 'Right';
     this.container.appendChild(this.btnRight);
+    this.rect = this.container.getBoundingClientRect();
+    this.rectUp = this.rect.top;
+    this.rectLeft = this.rect.left;
+    this.rectDown = this.rect.bottom - 200;
 
     this.scrollUp = function () {
-        this.container.style.top = '0';
         this.container.alignItems = '';
+        let rect = this.container.getBoundingClientRect();
+        if (rect.top === 0) {
+            return;
+        } else {
+            this.container.style.top = this.rectUp - this.rectUp + 'px';
+            this.container.style.marginTop = '0';
+        }
     }.bind(this)
-    
+
     this.scrollDown = function () {
-        this.container.style.top = '';
-        this.container.style.bottom = '0';
         this.container.alignItems = '';
+        let rect = this.container.getBoundingClientRect();
+        if (rect.top === 0) {
+            this.container.style.top = this.rectUp * 2 + 'px';
+        } else {
+            this.container.style.top = this.rectUp * 2 + 'px';
+            this.container.style.marginTop = '0';
+        }
     }.bind(this)
-    
+
     this.scrollLeft = function () {
-        this.container.style.left = '0';
         this.container.justifyContent = '';
+        let rect = this.container.getBoundingClientRect();
+        if (rect.left === 0) {
+            return;
+        } else {
+            this.container.style.left = this.rectLeft - this.rectLeft + 'px';
+            this.container.style.marginLeft = '0';
+        }
     }.bind(this)
-    
+
     this.scrollRigth = function () {
-        this.container.style.left = '';
-        this.container.style.right = '0';
         this.container.justifyContent = '';
+        let rect = this.container.getBoundingClientRect();
+        if (rect.left === 0) {
+            this.container.style.left = this.rectLeft * 2 + 'px';
+        } else {
+            this.container.style.left = this.rectLeft * 2 + 'px';
+            this.container.style.marginLeft = '0';
+        }
     }.bind(this)
-    
+
     this.init = function () {
         this.btnUp.onclick = this.scrollUp;
         this.btnDown.onclick = this.scrollDown;
